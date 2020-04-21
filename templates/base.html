@@ -138,8 +138,8 @@ h1 {
   </div>
 <h2 style="
     text-align: center;">
-<!--            {% block map_text %}-->
-<!--    {% endblock %}-->
+            {% block map_text %}
+    {% endblock %}
          {% block confirmed_text %}
     {% endblock %}
         {% block recovered_text%}
@@ -147,6 +147,27 @@ h1 {
         {% block deaths_text%}
         {% endblock %}
 </h2>
+  <div>
+<!--    {% block clock_html %}-->
+<!--    {% endblock %}-->
+
+  {% block map_body %}
+  {% endblock %}
+  {% block confirmed_body %}
+  {% endblock %}
+
+  {% block recovered_body %}
+  {% endblock %}
+  {% block Deaths_body%}
+  {% endblock %}
+
+    {% block result_body%}
+    {% endblock %}
+
+    {% block predict_body%}
+    {% endblock %}
+
+    </div>
 
 
 
@@ -188,27 +209,7 @@ h1 {
 
 
     </div>
-<div>
-<!--    {% block clock_html %}-->
-<!--    {% endblock %}-->
 
-  {% block map_body %}
-  {% endblock %}
-  {% block confirmed_body %}
-  {% endblock %}
-
-  {% block recovered_body %}
-  {% endblock %}
-  {% block Deaths_body%}
-  {% endblock %}
-
-    {% block result_body%}
-    {% endblock %}
-
-    {% block predict_body%}
-    {% endblock %}
-
-    </div>
   {% block map_script %}
 {% endblock  %}
 {% block confirmed_script %}
