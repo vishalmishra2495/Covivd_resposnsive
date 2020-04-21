@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+  <head>
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!--      <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--<style>-->
+<!--&lt;!&ndash;body {&ndash;&gt;-->
+<!--&lt;!&ndash;  margin: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;  font-family: Arial, Helvetica, sans-serif;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;.topnav {&ndash;&gt;-->
+<!--&lt;!&ndash;  overflow: hidden;&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #333;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;.topnav a {&ndash;&gt;-->
+<!--&lt;!&ndash;  float: left;&ndash;&gt;-->
+<!--&lt;!&ndash;  display: block;&ndash;&gt;-->
+<!--&lt;!&ndash;  color: #f2f2f2;&ndash;&gt;-->
+<!--&lt;!&ndash;  text-align: center;&ndash;&gt;-->
+<!--&lt;!&ndash;  padding: 14px 16px;&ndash;&gt;-->
+<!--&lt;!&ndash;  text-decoration: none;&ndash;&gt;-->
+<!--&lt;!&ndash;  font-size: 17px;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;.topnav a:hover {&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #ddd;&ndash;&gt;-->
+<!--&lt;!&ndash;  color: black;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;.topnav a.active {&ndash;&gt;-->
+<!--&lt;!&ndash;  background-color: #4CAF50;&ndash;&gt;-->
+<!--&lt;!&ndash;  color: white;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;.topnav .icon {&ndash;&gt;-->
+<!--&lt;!&ndash;  display: none;&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;@media screen and (max-width: 600px) {&ndash;&gt;-->
+<!--&lt;!&ndash;  .topnav a:not(:first-child) {display: none;}&ndash;&gt;-->
+<!--&lt;!&ndash;  .topnav a.icon {&ndash;&gt;-->
+<!--&lt;!&ndash;    float: right;&ndash;&gt;-->
+<!--&lt;!&ndash;    display: block;&ndash;&gt;-->
+<!--&lt;!&ndash;  }&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+
+<!--&lt;!&ndash;@media screen and (max-width: 600px) {&ndash;&gt;-->
+<!--&lt;!&ndash;  .topnav.responsive {position: relative;}&ndash;&gt;-->
+<!--&lt;!&ndash;  .topnav.responsive .icon {&ndash;&gt;-->
+<!--&lt;!&ndash;    position: absolute;&ndash;&gt;-->
+<!--&lt;!&ndash;    right: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;    top: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;  }&ndash;&gt;-->
+<!--&lt;!&ndash;  .topnav.responsive a {&ndash;&gt;-->
+<!--&lt;!&ndash;    float: none;&ndash;&gt;-->
+<!--&lt;!&ndash;    display: block;&ndash;&gt;-->
+<!--&lt;!&ndash;    text-align: left;&ndash;&gt;-->
+<!--&lt;!&ndash;  }&ndash;&gt;-->
+<!--&lt;!&ndash;}&ndash;&gt;-->
+<!--&lt;!&ndash;</style>&ndash;&gt;-->
+      <style>
+
+          body {
+  font-family: "Century Gothic", sans-serif;
+  background: linear-gradient(to bottom, #fff 0%, #bfd 100%);
+  margin: 0;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  background-color: #ccc;
+  left: 0;
+  top: 0;
+  border-bottom: 5px solid;
+}
+
+.navContainer a {
+  display: flex;
+  justify-Content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  text-decoration: none;
+}
+
+.navContainer a.active {
+  background-color: #ddd;
+}
+
+.navContainer a:hover {
+  background-color: #eee;
+}
+
+#showscroll {
+  background-color: lightblue;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  padding: 5px;
+  padding-left. 10px;
+  display: none;
+}
+
+.sectionElement {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 5px solid;
+}
+      </style>
+
+
+
+  </head>
+  <body>
+  <div class="navContainer">
+    <a href="/" class="navItem">FORECASTER</a>
+    <a href="/map" class="navItem">MAP</a>
+    <a href="/scatter_1" class="navItem">CONFIRMED-CASES</a>
+    <a href="/scatter_2" class="navItem">RECOVERED-CASES</a>
+    <a href="/scatter_3" class="navItem">DEATHS-WORLDWIDE</a>
+
+  </div>
+<h2 style="
+    text-align: center;">
+<!--            {% block map_text %}-->
+<!--    {% endblock %}-->
+         {% block confirmed_text %}
+    {% endblock %}
+        {% block recovered_text%}
+        {% endblock %}
+        {% block deaths_text%}
+        {% endblock %}
+</h2>
+
+
+
+
+<!--<div class="tabmain">-->
+<!--<ul class="tab-bar" >-->
+<!--    <li data-num="1" class="tab wave dark"><a href="/">FORECAST</a></li>-->
+<!--  <li data-num="2" class="tab wave dark"><a href="/map">MAP</a></li>-->
+<!--  <li data-num="3" class="tab wave dark"><a href="/scatter_1">CONFIRMED</a></li>-->
+<!--    <li data-num="4" class="tab wave dark"><a href="/scatter_2">RECOVERED</a></li>-->
+<!--  <li data-num="5" class="tab wave dark"><a href="/scatter_3">DEATHS</a></li>-->
+
+<!--  <div class="indicator"></div>-->
+
+<!--</ul>-->
+<!--<div class="topnav" id="myTopnav">-->
+<!--  <a href="/" class="active">Forecast</a>-->
+<!--  <a href="/map">MAP</a>-->
+<!--  <a href="/scatter_1">CONFIRMED</a>-->
+<!--  <a href="/scatter_2">RECOVERED</a>-->
+<!--  <a href="javascript:void(0);" class="icon" onclick="myFunction()">-->
+<!--    <i class="fa fa-bars"></i>-->
+<!--  </a>-->
+<!--</div>-->
+
+
+<!--<script>-->
+<!--function myFunction() {-->
+<!--  var x = document.getElementById("myTopnav");-->
+<!--  if (x.className === "topnav") {-->
+<!--    x.className += " responsive";-->
+<!--  } else {-->
+<!--    x.className = "topnav";-->
+<!--  }-->
+<!--}-->
+<!--</script>-->
+
+
+
+
+    </div>
+<div>
+<!--    {% block clock_html %}-->
+<!--    {% endblock %}-->
+
+  {% block map_body %}
+  {% endblock %}
+  {% block confirmed_body %}
+  {% endblock %}
+
+  {% block recovered_body %}
+  {% endblock %}
+  {% block Deaths_body%}
+  {% endblock %}
+
+    {% block result_body%}
+    {% endblock %}
+
+    {% block predict_body%}
+    {% endblock %}
+
+    </div>
+  {% block map_script %}
+{% endblock  %}
+{% block confirmed_script %}
+{% endblock  %}
+{% block recovered_script%}
+{% endblock %}
+{% block Deaths_script%}
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  </body>
+
+<!--{% block clock_script%}-->
+<!--{% endblock %}-->
+<!---->
+
+
+
+</html>
